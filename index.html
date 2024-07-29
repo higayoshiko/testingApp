@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Testing Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 500px;
+        }
+        .form-container h2 {
+            margin-top: 0;
+        }
+        .form-container label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-container input[type="text"],
+        .form-container input[type="email"],
+        .form-container input[type="url"],
+        .form-container input[type="date"],
+        .form-container select {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-container input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .form-container input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-container input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .date-picker-container {
+            display: none;
+        }
+    </style>
+    <script>
+        function toggleDatePicker() {
+            var checkBox = document.getElementById("requestDate");
+            var datePicker = document.getElementById("datePicker");
+            if (checkBox.checked == true) {
+                datePicker.style.display = "block";
+            } else {
+                datePicker.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Affiliate Testing Form</h2>
+        <form action="YOUR_WEB_APP_URL" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Email" required>
+
+            <label for="link">Link:</label>
+            <input type="url" id="link" name="link" placeholder="Link">
+
+            <label for="language">Preferred Language:</label>
+            <select id="language" name="language" required>
+                <option value="" disabled selected>Select your language</option>
+                <option value="en">English</option>
+                <option value="id">Indonesian</option>
+                <option value="tl">Tagalog</option>
+                <option value="vi">Vietnamese</option>
+                <option value="zh">Chinese</option>
+            </select>
+
+            <label for="requestDate">
+                <input type="checkbox" id="requestDate" name="requestDate" onclick="toggleDatePicker()">
+                Request a Date
+            </label>
+
+            <div id="datePicker" class="date-picker-container">
+                <label for="date">Date Picker:</label>
+                <input type="date" id="date" name="date" placeholder="Request Date">
+            </div>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
